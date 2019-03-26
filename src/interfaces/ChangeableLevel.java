@@ -1,5 +1,5 @@
 
-package onglets;
+package interfaces;
 
 /**
  *

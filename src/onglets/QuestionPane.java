@@ -1,5 +1,6 @@
 package onglets;
 
+import interfaces.ChangeableLevel;
 import beans.Question;
 import dao.DAOFactory;
 import dao.QuestionDAO;
