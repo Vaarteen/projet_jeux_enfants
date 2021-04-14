@@ -26,8 +26,8 @@ public class QuestionDAO extends DAO<Question> {
                 question = new Question(
                         id,
                         result.getString("question"),
-                        result.getString("reponse"),
-                        result.getInt("niveau")
+                        result.getString("answer"),
+                        result.getInt("level")
                 );
             }
         } catch (SQLException ex) {
@@ -39,7 +39,7 @@ public class QuestionDAO extends DAO<Question> {
     @Override
     public Question create(Question obj) {
         try {
-            String req = "INSERT INTO " + TABLE + " (question, reponse, niveau) VALUES(?, ?, ?)";
+            String req = "INSERT INTO " + TABLE + " (question, answer, level) VALUES(?, ?, ?)";
             PreparedStatement pstmt = this.connection.prepareStatement(
                     req, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getQuestion());
@@ -100,7 +100,7 @@ public class QuestionDAO extends DAO<Question> {
     public ArrayList<Integer> findByLevel(int niveau) {
         ArrayList<Integer> questionIds = new ArrayList<>();
         try {
-            String req = "SELECT id FROM " + TABLE + " WHERE niveau <= ?";
+            String req = "SELECT id FROM " + TABLE + " WHERE level <= ?";
             PreparedStatement pstmt = this.connection.prepareStatement(req);
             pstmt.setInt(1, niveau);
             ResultSet result = pstmt.executeQuery();

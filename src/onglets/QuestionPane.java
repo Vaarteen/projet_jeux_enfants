@@ -22,11 +22,13 @@ import javax.swing.JTextField;
 
 public class QuestionPane extends JPanel implements ChangeableLevel {
 
+    private static final long serialVersionUID = 1L;
+
     /*
      * Les variables d'instance
      */
     private final JLabel labelNiveau; // Le label indiquant le niveau sélectionné
-    private JTextArea labelQuestion; // Le texte montrant la question
+    private final JTextArea labelQuestion; // Le texte montrant la question
     private JTextField jtfProposition; // Le champ de réponse
     private final JButton jbVerifier, // Le bouton de vérification de la proposition
             jbSolution, // Le bouton montrant la solution
