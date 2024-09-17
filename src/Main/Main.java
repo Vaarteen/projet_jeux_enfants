@@ -1,6 +1,8 @@
 package Main;
 
 import dao.MySQLConnection;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Jeux pour les enfants
@@ -10,11 +12,15 @@ import dao.MySQLConnection;
 public class Main {
 
     public static void main(String[] args) {
-        // Créer la DB en mémoire
-        MySQLConnection.getInstance();
         JeuxEnfant j = new JeuxEnfant();
-        // Fermer proprement la connexion
-        MySQLConnection.close();
+        // On ferme proprement la connexion
+        j.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                MySQLConnection.close();
+            }
+
+        });
     }
 
 }
