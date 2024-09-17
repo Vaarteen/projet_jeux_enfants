@@ -7,8 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
-import javafx.util.Pair;
 import javax.swing.JPanel;
+import utils.Pair;
 
 public class DrawPanel extends JPanel {
 
@@ -91,14 +91,14 @@ public class DrawPanel extends JPanel {
             });
         }
     }
-    
+
     // Effacement du contenu
     public void erase() {
         this.effacer = true;
         this.points.clear();
         repaint();
     }
-    
+
     // Mutateurs
     public void setCouleur(Color couleur) {
         this.couleur = couleur;

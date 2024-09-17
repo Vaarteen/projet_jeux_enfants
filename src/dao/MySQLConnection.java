@@ -43,11 +43,21 @@ public final class MySQLConnection {
                         + ":" + config.getProperty("port")
                         + "/" + config.getProperty("database");
                 connection = DriverManager.getConnection(url, config);
+                createDB();
             } catch (SQLException ex) {
                 Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return connection;
+    }
+
+    public static void close() {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+            }
+        }
     }
 
     private static void loadConfig() {
@@ -57,6 +67,10 @@ public final class MySQLConnection {
         } catch (IOException ex) {
             Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private static void createDB() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
